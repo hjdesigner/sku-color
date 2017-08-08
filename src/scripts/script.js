@@ -58,3 +58,14 @@ function readExcel(cont){
         viewDiv.style.opacity = '1';
     });
 }
+
+var clipboard = new Clipboard('[data-js="clip"]', {
+    text: function() {
+        return 'http://henriquemelanda.com.br/html-excel/cvs.html';
+    }
+});
+
+clipboard.on('success', function(e) {
+    console.log(e);
+    console.log('copio');
+});
