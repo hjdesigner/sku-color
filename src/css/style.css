@@ -49,7 +49,7 @@ p{
 	height: auto;
 	display: inline-block;
 	margin-top: 30px;
-	margin-bottom: 50px;
+	margin-bottom: 50px;	
 }
 input[type="text"]{
 	width: 90%;
@@ -108,10 +108,20 @@ button{
 	background-color: #282a36;
 	color: #f6b168;
 	opacity: 0;
-	transition: opacity 500ms ease-in;
+	transition: opacity 500ms ease-in;	
 }
 .color-thumb{
 	width: 30px;
 	height: 30px;
 	float: left;
+	background-size: cover;
+}
+.error{
+	display: none;
+	width: 100%;
+	height: auto;
+	float: left;
+	margin-top: 10px;
+	color: red;
+	font-size: .8em;
 }
