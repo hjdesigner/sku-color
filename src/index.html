@@ -4,17 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>GERADOR CSS DE LISTA DE CORES</title>
     <link rel="stylesheet" href="./css/github-markdown.css">
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <div class="form">
-        <input type="text" id="formUrl">
-        <button id="procurar">Gerar</button>
+    <div class="html" data-js="htmlCont"></div>
+    <div class="container">
+        <h1>Gerador CSS de lista de cores</h1>
+        <p>PASSO A PASSO</p>
+        <p>1º Exporte a planilha como: "Pagina da Web (.html, compactado)"</p>
+        <p>2º Coloque esse arquivo exportado em um servidor</p>
+        <p>3º Copie a url do servidor e coloque no campo a baixo</p>
+        <p><small>Use essa url para ver funcionando: http://henriquemelanda.com.br/html-excel/cvs.html</small></p>
+        <div class="form">
+            <input type="text" data-js="formUrl" placeholder="Digite a url do arquivo">
+            <button data-js="procurar">Gerar</button>
+        </div>
+        <div class="view-color" data-js="colorView">
+            <h2>Cores:</h2>
+            <ul data-js="color"></ul>
+        </div>
+        <div class="cssFinish markdown-body" data-js="cssFinish"></div>
     </div>
-    <div class="html"></div>
-    <div class="cssFinish markdown-body"></div>
     <script src="./scripts/script.js"></script>
 </body>
 </html>
