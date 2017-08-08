@@ -125,3 +125,49 @@ button{
 	color: red;
 	font-size: .8em;
 }
+@media screen and (max-width: 1000px){
+	input[type="text"]{
+		width: 80%;
+	}
+	button{
+		width: 20%;
+	}
+	.container{
+		width: 92%;
+		padding: 0 4%;
+	}
+	.markdown-body{
+		padding: 25px;
+	}
+}
+@media screen and (max-width: 600px){
+	h1{
+		font-size: 1.5em;
+		 margin-top: 20px;
+	}
+	p {
+		margin-top: 10px;
+		font-size: .8em;
+	}
+	small{
+		font-size: 1em;
+	}
+	input[type="text"]{
+		width: 70%;
+	}
+	button{
+		width: 30%;
+	}
+	.view-color{
+		width: 100%;
+	}
+	.cssFinish{
+		width: 100%;
+	}
+	.form{
+		margin-bottom: 20px;
+	}
+	.view-color{
+		margin-bottom: 20px;
+	}
+}
