@@ -1,4 +1,3 @@
-var html;
 var htmlCont = document.querySelector('[data-js="htmlCont"]');
 var cssFinish = document.querySelector('[data-js="cssFinish"]');
 var input = document.querySelector('[data-js="formUrl"]');
@@ -6,10 +5,13 @@ var button = document.querySelector('[data-js="procurar"]');
 var viewDiv = document.querySelector('[data-js="colorView"]')
 var viewColor = document.querySelector('[data-js="color"]');
 var error = document.querySelector('[data-js="erro"]');
+var clip = document.querySelector('[data-js="clip"]');
 var xhr = new XMLHttpRequest();
+var html;
 var className;
 var classValue;
 var cssColor;
+var sassColor;
 var url;
 var viewHtml;
 
@@ -26,7 +28,7 @@ function ajaxHtml(){
                     html = xhr.responseText;
                     readExcel(html);
                 }else{
-                    console.log('deu merda');
+                    console.log('deu erro');
                 }
             }
         }
@@ -46,7 +48,8 @@ function readExcel(cont){
         className = el.children[1].textContent.replace(' ','-');
         classValue = el.children[2].textContent;
         if(classValue.match(/#/g)){
-            cssColor = '.skuespec_Cores_opcao_' + className + '{ background-color: ' + classValue + '} <br />';
+            //CSS
+            cssColor = '.skuespec_Cores_opcao_' + className + '{ background-color: ' + classValue + '} <br />';            
             viewHtml = '<li><div class="color-thumb" style="background-color: '+ classValue +' "></div><span>'+ className +'</span></li>';
         }else{
             cssColor = '.skuespec_Cores_opcao_' + className + '{ background-image: url(' + classValue + ')} <br />';
@@ -66,6 +69,5 @@ var clipboard = new Clipboard('[data-js="clip"]', {
 });
 
 clipboard.on('success', function(e) {
-    console.log(e);
-    console.log('copio');
+    clip.classList.add('active');
 });
