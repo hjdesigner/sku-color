@@ -1,6 +1,8 @@
-# Gerador VTEX CSS de lista de cores
+# Gerador VTEX CSS cores de sku
 
 [http://henriquemelanda.com.br/sku-color/](http://henriquemelanda.com.br/sku-color/)
+
+![SKU COLORS](http://henriquemelanda.com.br/sku-color/images/sku-color.jpg)
 
 > PASSO A PASSO
 
