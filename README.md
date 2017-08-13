@@ -13,6 +13,8 @@
 
 ## Como contribuir no projeto
 
+> Requisitos do projeto
+
 * CSS
 * Javascript
 
