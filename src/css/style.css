@@ -31,7 +31,7 @@ h2{
 h3{
 	font-size: 1.2em;
 	font-weight: bold;
-	color: #FFF;
+	color: #000;
 	margin-bottom: 20px;
 }
 p{
@@ -55,7 +55,7 @@ p{
 	height: auto;
 	display: inline-block;
 	margin-top: 30px;
-	margin-bottom: 50px;	
+	margin-bottom: 10px;	
 }
 input[type="url"]{
 	width: 90%;
@@ -129,6 +129,31 @@ button{
 	margin-top: 10px;
 	color: red;
 	font-size: .8em;
+}
+.loader{
+	width: 100%;
+	height: auto;
+	text-align: center;	
+	display: inline-block;
+	margin-top: 10px;
+}
+@keyframes animationLoader{
+	0%{
+		transform: rotate(0deg);
+	}
+	100%{
+		transform: rotate(360deg);
+	}
+}
+.loader.is-active:after{
+	content: "";
+	width: 30px;
+	height: 30px;
+	border: 5px solid #22d6bb;
+	border-radius: 50%;
+	border-right: 5px solid transparent;
+	display: inline-block;
+	animation: animationLoader 1.25s linear infinite;
 }
 .error.active{
 	display: block;
