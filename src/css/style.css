@@ -28,8 +28,14 @@ h2{
 	font-weight: bold;
 	color: #000;
 }
+h3{
+	font-size: 1.2em;
+	font-weight: bold;
+	color: #FFF;
+	margin-bottom: 20px;
+}
 p{
-	margin-top: 20px;
+	margin-top: 10px;
 	text-align: center;
 	font-size: 1em;
 	font-weight: 600;
@@ -51,7 +57,7 @@ p{
 	margin-top: 30px;
 	margin-bottom: 50px;	
 }
-input[type="text"]{
+input[type="url"]{
 	width: 90%;
 	height: 50px;
 	float: left;
@@ -79,7 +85,6 @@ button{
 	width: 40%;
 	height: auto;
 	float: left;
-	opacity: 0;
 	transition: opacity 500ms ease-in;
 }
 .view-color ul{
@@ -106,11 +111,9 @@ button{
 	box-sizing: border-box;
 	width: 60%;
 	float: right;
-	padding: 45px;	
+	padding: 20px 45px;
 	background-color: #282a36;
 	color: #f6b168;
-	opacity: 0;
-	transition: opacity 500ms ease-in;	
 }
 .color-thumb{
 	width: 30px;
@@ -127,6 +130,9 @@ button{
 	color: red;
 	font-size: .8em;
 }
+.error.active{
+	display: block;
+}
 .url-exemplo{
 	width: 100%;
 	height: auto;
@@ -137,8 +143,8 @@ small{
 	display: inline-block;
 }
 .btn-clipboard{
-	width: 30px;
-	height: 36px;
+	width: 20px;
+	height: 23px;
 	border: 0;
 	float: right;
 	text-indent: -9999px;
@@ -147,7 +153,7 @@ small{
 	background-repeat: no-repeat;
 	background-size: contain;
 	position: relative;
-	top: -13px;
+	top: -7px;
 	margin-left: 5px;
 	outline: 1px solid transparent;
 }
@@ -155,61 +161,42 @@ small{
 	content: "Copiado";
 	position: absolute;
 	bottom: -17px;
-	left: -13px;
+	left: -20px;
 	font-size: 1em;
 	color: #22d6bb;
 	font-weight: bold;
 	opacity: 0;
 	width: auto;
 	text-indent: 0;	
+	height: 0;
 }
 .btn-clipboard.active:before{
 	transition: opacity 500ms ease-in;
 	opacity: 1;
+	height: auto;
 }
-@media screen and (max-width: 1000px){
-	input[type="text"]{
-		width: 80%;
-	}
-	button{
-		width: 20%;
-	}
-	.container{
-		width: 92%;
-		padding: 0 4%;
-	}
-	.markdown-body{
-		padding: 25px;
-	}
+.github {
+	width: 60px;
+	height: 60px;
+	position: absolute;
+	top: 0;
+	right: 0;
 }
-@media screen and (max-width: 600px){
-	h1{
-		font-size: 1.5em;
-		 margin-top: 20px;
-	}
-	p {
-		margin-top: 10px;
-		font-size: .8em;
-	}
-	small{
-		font-size: 1em;
-	}
-	input[type="text"]{
-		width: 70%;
-	}
-	button{
-		width: 30%;
-	}
-	.view-color{
-		width: 100%;
-	}
-	.cssFinish{
-		width: 100%;
-	}
-	.form{
-		margin-bottom: 20px;
-	}
-	.view-color{
-		margin-bottom: 20px;
-	}
+.github svg {
+	width: 60px;
+	height: 60px;
+}
+.links{
+  margin-top: 10px;
+}
+.links ul{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+	list-style: none;
+}
+.links li{
+	text-align: center;
+	margin-right: 1%;      
 }
