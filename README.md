@@ -10,3 +10,14 @@
 * 2º Coloque esse arquivo exportado em um servidor
 * 3º Copie a url do servidor e coloque no campo a baixo
 * Use essa url para ver funcionando: http://henriquemelanda.com.br/html-excel/cvs.html
+
+## Como contribuir no projeto
+
+* CSS
+* Javascript
+
+> Contribuindo
+
+* Clone o repositorio
+* Faça sua mágica
+* Abre um PR descrevendo sua contribuição
