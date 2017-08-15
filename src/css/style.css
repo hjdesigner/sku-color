@@ -57,11 +57,12 @@ p{
 	margin-top: 30px;
 	margin-bottom: 10px;	
 }
-input[type="url"]{
+input[type="file"]{
 	width: 90%;
 	height: 50px;
 	float: left;
 	padding: 10px;
+	background-color: #FFF;
 	border: 1px solid #e4e1e1;
 	border-radius: 0;
 	border-right: 0;
@@ -166,6 +167,10 @@ button{
 small{
 	width: auto;
 	display: inline-block;
+}
+small a{
+	text-decoration: underline;
+	color: #000;
 }
 .btn-clipboard{
 	width: 20px;

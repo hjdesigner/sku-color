@@ -1,64 +1,42 @@
-var input = document.querySelector('[data-js="formUrl"]'),
-    button = document.querySelector('[data-js="procurar"]'),
+var button = document.querySelector('[data-js="procurar"]'),
     viewColor = document.querySelector('[data-js="color"]'),
     error = document.querySelector('[data-js="erro"]'),
-    clip = document.querySelector('[data-js="clip"]'),
     templateHTMLCSS = document.querySelector('[data-js="htmlCSS"]'),
     viewCSS = document.querySelector('[data-js="cssFinish"]'),
     loader = document.querySelector('[data-js="loader"]'),
-    xhr = new XMLHttpRequest(),
-    urlValidator = new RegExp(/^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/g),
+    file = document.querySelector('[data-js="uploadInput"]'),
     parser = new DOMParser(),
-    html,
+    fileReader = new FileReader(),
     className,
     classValue,
     cssColor,
-    url,
     viewHtml,
-    table;
+    table,
+    textFromFileLoaded;
 
-button.addEventListener('click', ajaxHtml)
+button.addEventListener('click', inputFile)
 
-
-function ajaxHtml(){
-  url = input.value;
-  if( url !== '' && url.match(urlValidator)){
-    xhr.open('GET', url);
-    xhr.onreadystatechange = () => {
-      if(xhr.readyState === 3){
-        loader.classList.add('is-active');
-      }
-      if(xhr.readyState === 4){
-        if(xhr.status === 200){
-          loader.classList.remove('is-active');
-          html = xhr.responseText;
-          readExcel(html);
-        }else if(xhr.status === 404){
-          loader.classList.remove('is-active');
-          error.classList.add('active');
-          error.innerHTML = 'Não encontramos nenhuma tabela nessa url';
-        }
-      }
-    }
-    xhr.send();
-  }else{
-    error.classList.add('active');
-    error.innerHTML = 'Por favor coloque uma url válida';
-  }
+function inputFile(){
+  dadosFile = file.files[0];  
+  fileReader.onload = function(fileLoadedEvent) {
+    loader.classList.add('active');
+    textFromFileLoaded = fileLoadedEvent.target.result;
+    //PEGANDO TODAS AS TR DA TABELA    
+    table = parser.parseFromString(textFromFileLoaded, "text/html").querySelectorAll('tr');
+    readExcel(table);
+  };
+  fileReader.readAsText(dadosFile, "UTF-8");
 }
 
 function readExcel(cont){
   error.classList.remove('active');
-  clip.classList.remove('active');
   //LIMPANDO O HTML ANTES DE GERAR UM NOVO
   viewColor.innerHTML = '';
   templateHTMLCSS.textContent = '';
   if(viewCSS.children[1]){
     viewCSS.children[1].remove();
-  }
-  //PEGANDO TODAS AS TR DA TABELA
-  table = parser.parseFromString(cont, "text/html").querySelectorAll('tr');
-  table.forEach(function(el, i) {
+  }  
+  cont.forEach(function(el, i) {
     //IGNORANDO A PRIMEIRA TR
     if( i != 0 ){
       className = el.children[1].textContent.replace(' ','-');
@@ -78,16 +56,7 @@ function readExcel(cont){
       viewColor.insertAdjacentHTML('beforeend', viewHtml);
     }    
   });
+  loader.classList.remove('active');
   //MONSTRANDO O CSS GERADO
   viewCSS.insertAdjacentHTML('beforeend', '<div class="markdown-body">' + templateHTMLCSS.textContent + '</div>');  
 }
-
-var clipboard = new Clipboard('[data-js="clip"]', {
-  text: function() {
-    return 'http://henriquemelanda.com.br/html-excel/cvs.html';
-  }
-});
-
-clipboard.on('success', function(e) {
-    clip.classList.add('active');
-});

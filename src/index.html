@@ -25,10 +25,10 @@
 <main class="container" data-js="main">
   <h1>Gerador VTEX CSS cores de sku</h1>
   <p>PASSO A PASSO</p>
-  <p>1º Exporte a planilha como: "Pagina da Web (.html, compactado)"</p>
-  <p>2º Coloque esse arquivo exportado em um servidor</p>
-  <p>3º Copie a url do servidor e coloque no campo a baixo</p>
-  <p><small>Use essa url para ver funcionando: http://henriquemelanda.com.br/html-excel/cvs.html <button class="btn-clipboard" data-js="clip">Copiar</button></small></p>
+  <p>1º Salve a planilha no formato "Pagina da Web (.html, compactado)" na sua maquina</p>
+  <p><small><a href="http://henriquemelanda.com.br/html-excel/index.html" target="_blank">** Confira um exemplo de excel clicando aqui</a></small></p>
+  <p>2º Localize o arquivo utilizando o campo a baixo</p>
+  <p>3º Clique em Gerar</p>
   <div class="links">
     <ul>
       <li class="git-btn">
@@ -45,7 +45,7 @@
     </ul>
   </div>
   <section class="form">
-    <input type="url" data-js="formUrl" placeholder="Digite a url do arquivo">
+    <input type="file" name="myFiles" data-js="uploadInput" accept=".html">
     <button data-js="procurar">Gerar</button>
     <div class="error" data-js="erro"></div>
     <div class="loader" data-js="loader"></div>
@@ -69,7 +69,6 @@
     </svg>
   </a>
 </div>
-<script src="./scripts/clipboard.min.js"></script>
 <script src="./scripts/script.js"></script>
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 <script>

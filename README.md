@@ -1,15 +1,15 @@
 # Gerador VTEX CSS cores de sku
 
-[http://henriquemelanda.com.br/sku-color/](http://henriquemelanda.com.br/sku-color/)
+[Use essa url para ver funcionando:](http://henriquemelanda.com.br/sku-color/)
 
 ![SKU COLORS](http://henriquemelanda.com.br/sku-color/images/sku-color.jpg)
 
 > PASSO A PASSO
 
-* 1º Exporte a planilha como: "Pagina da Web (.html, compactado)"
-* 2º Coloque esse arquivo exportado em um servidor
-* 3º Copie a url do servidor e coloque no campo a baixo
-* Use essa url para ver funcionando: http://henriquemelanda.com.br/html-excel/cvs.html
+* 1º Salve a planilha no formato "Pagina da Web (.html, compactado)" na sua maquina
+* 2º Localize o arquivo utilizando o campo a baixo
+* 3º Clique em Gerar
+* [Confira um exemplo de excel clicando aqui](http://henriquemelanda.com.br/html-excel/index.html)
 
 ## Como contribuir no projeto
 
