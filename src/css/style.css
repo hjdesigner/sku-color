@@ -116,6 +116,9 @@ button{
 	background-color: #282a36;
 	color: #f6b168;
 }
+.markdown-body.active {
+	display: block;
+}
 .color-thumb{
 	width: 30px;
 	height: 30px;
@@ -217,11 +220,9 @@ small a{
 	height: 60px;
 }
 .links{
-  margin-top: 10px;
-}
-.links ul{
 	width: 100%;
 	display: flex;
+  margin-top: 10px;
 	justify-content: center;
 	flex-direction: row;
 	list-style: none;

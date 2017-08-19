@@ -2,7 +2,6 @@ var button = document.querySelector('[data-js="procurar"]'),
     viewColor = document.querySelector('[data-js="color"]'),
     error = document.querySelector('[data-js="erro"]'),
     templateHTMLCSS = document.querySelector('[data-js="htmlCSS"]'),
-    viewCSS = document.querySelector('[data-js="cssFinish"]'),
     loader = document.querySelector('[data-js="loader"]'),
     file = document.querySelector('[data-js="uploadInput"]'),
     parser = new DOMParser(),
@@ -33,9 +32,8 @@ function readExcel(cont){
   //LIMPANDO O HTML ANTES DE GERAR UM NOVO
   viewColor.innerHTML = '';
   templateHTMLCSS.textContent = '';
-  if(viewCSS.children[1]){
-    viewCSS.children[1].remove();
-  }  
+  templateHTMLCSS.classList.remove('active');
+  
   cont.forEach(function(el, i) {
     //IGNORANDO A PRIMEIRA TR
     if( i != 0 ){
@@ -50,13 +48,13 @@ function readExcel(cont){
         cssColor = '.skuespec_Cores_opcao_' + className + '{ background-image: url(' + classValue + ')} <br />';
         viewHtml = '<li><div class="color-thumb" style="background-image: url('+ classValue +')"></div><span>'+ className +'</span></li>';        
       }
+      //MONSTRANDO O CSS GERADO
       templateHTMLCSS.insertAdjacentHTML('beforeend', cssColor);
+      templateHTMLCSS.classList.add('active');
       //AQUI ESTAMOS MONTANDO A PARTE DE CORES PARA O USUARIO VISUALIZAR
       //O QUE ESTA SENDO GERADO
       viewColor.insertAdjacentHTML('beforeend', viewHtml);
     }    
   });
   loader.classList.remove('active');
-  //MONSTRANDO O CSS GERADO
-  viewCSS.insertAdjacentHTML('beforeend', '<div class="markdown-body">' + templateHTMLCSS.textContent + '</div>');  
 }
