@@ -16,18 +16,24 @@ var button = document.querySelector('[data-js="procurar"]'),
 button.addEventListener('click', inputFile)
 
 function inputFile(){
-  dadosFile = file.files[0];  
-  fileReader.onload = function(fileLoadedEvent) {
-    loader.classList.add('active');
-    textFromFileLoaded = fileLoadedEvent.target.result;
-    //PEGANDO TODAS AS TR DA TABELA    
-    table = parser.parseFromString(textFromFileLoaded, "text/html").querySelectorAll('tr');
-    readExcel(table);
-  };
-  fileReader.readAsText(dadosFile, "UTF-8");
+  dadosFile = file.files[0];
+  if(dadosFile !== '' && dadosFile !== null && typeof dadosFile !== 'undefined'){
+    fileReader.onload = function(fileLoadedEvent) {
+      loader.classList.add('is-active');
+      textFromFileLoaded = fileLoadedEvent.target.result;
+      //PEGANDO TODAS AS TR DA TABELA    
+      table = parser.parseFromString(textFromFileLoaded, "text/html").querySelectorAll('tr');
+      readExcel(table);
+    };
+    fileReader.readAsText(dadosFile, "UTF-8");
+  }else{
+    error.textContent = 'Nenhum arquivo foi selecionado';
+    error.classList.add('active');
+  }
 }
 
 function readExcel(cont){
+  error.textContent = '';
   error.classList.remove('active');
   //LIMPANDO O HTML ANTES DE GERAR UM NOVO
   viewColor.innerHTML = '';
@@ -56,5 +62,5 @@ function readExcel(cont){
       viewColor.insertAdjacentHTML('beforeend', viewHtml);
     }    
   });
-  loader.classList.remove('active');
+  loader.classList.remove('is-active');
 }
