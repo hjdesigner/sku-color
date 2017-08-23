@@ -4,6 +4,7 @@ var button = document.querySelector('[data-js="procurar"]'),
     templateHTMLCSS = document.querySelector('[data-js="htmlCSS"]'),
     loader = document.querySelector('[data-js="loader"]'),
     file = document.querySelector('[data-js="uploadInput"]'),
+    nomeClatura = document.querySelector('[data-js="classInput"]'),
     parser = new DOMParser(),
     fileReader = new FileReader(),
     className,
@@ -17,7 +18,7 @@ button.addEventListener('click', inputFile)
 
 function inputFile(){
   dadosFile = file.files[0];
-  if(dadosFile !== '' && dadosFile !== null && typeof dadosFile !== 'undefined'){
+  if(dadosFile !== '' && dadosFile !== null && typeof dadosFile !== 'undefined' && nomeClatura.value !== ''){
     fileReader.onload = function(fileLoadedEvent) {
       loader.classList.add('is-active');
       textFromFileLoaded = fileLoadedEvent.target.result;
@@ -27,7 +28,7 @@ function inputFile(){
     };
     fileReader.readAsText(dadosFile, "UTF-8");
   }else{
-    error.textContent = 'Nenhum arquivo foi selecionado';
+    error.textContent = 'Nenhum arquivo foi selecionado ou nenhuma nomeclatura foi colocada';
     error.classList.add('active');
   }
 }
@@ -47,11 +48,11 @@ function readExcel(cont){
       classValue = el.children[2].textContent;
       if(classValue.match(/#/g)){
         //AQUI MONTA O BACKGROUND-COLOR
-        cssColor = '.skuespec_Cores_opcao_' + className + '{ background-color: ' + classValue + '} <br />';            
+        cssColor = '.'+ nomeClatura.value +'' + className + '{ background-color: ' + classValue + '} <br />';            
         viewHtml = '<li><div class="color-thumb" style="background-color: '+ classValue +' "></div><span>'+ className +'</span></li>';
       }else{
         //AQUI MONTA O BACKGROUND-IMAGE
-        cssColor = '.skuespec_Cores_opcao_' + className + '{ background-image: url(' + classValue + ')} <br />';
+        cssColor = '.'+ nomeClatura.value +'' + className + '{ background-image: url(' + classValue + ')} <br />';
         viewHtml = '<li><div class="color-thumb" style="background-image: url('+ classValue +')"></div><span>'+ className +'</span></li>';        
       }
       //MONSTRANDO O CSS GERADO
