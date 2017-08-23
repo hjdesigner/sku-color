@@ -8,7 +8,7 @@
 
 * 1º Salve a planilha no formato "Pagina da Web (.html, compactado)" na sua maquina
 * 2º Localize o arquivo utilizando o campo a baixo
-* 3º Coloque a nomeclatura da sua plataforma. Ex VTEX: skuespec_Cores_opcao_
+* 3º Coloque a nomenclatura da sua plataforma. Ex VTEX: skuespec_Cores_opcao_
 * 4º Clique em Gerar
 * [Confira um exemplo de excel clicando aqui](http://henriquemelanda.com.br/html-excel/index.html)
 
